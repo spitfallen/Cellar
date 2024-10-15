@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Cellar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+    <h1 class="text-center">Welcome to Thomas' Cellar</h1>
+    <a href="{{ url_for('add_item') }}" class="btn btn-primary mb-3">Add an Item</a>
+    <div>
+        <h2>Cigars</h2>
+        <ul class="list-group mb-4">
+            {% for item in cellar.cigars %}
+            <li class="list-group-item">{{ item.name }} - {{ item.quantity }} - {{ item.description }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Wines</h2>
+        <ul class="list-group mb-4">
+            {% for item in cellar.wines %}
+            <li class="list-group-item">{{ item.name }} - {{ item.quantity }} - {{ item.description }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Spirits</h2>
+        <ul class="list-group mb-4">
+            {% for item in cellar.spirits %}
+            <li class="list-group-item">{{ item.name }} - {{ item.quantity }} - {{ item.description }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
